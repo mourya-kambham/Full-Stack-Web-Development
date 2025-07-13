@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practice9</title>
+</head>
+<body>
+    <form action="/server">
+        <div>
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name">
+          <br>
+        </div>
+        <div>
+          <label for="sex">Sex:</label>
+          <input type="radio" id="sex" name="sex">
+          <label for="sex">Male</label>
+          <input type="radio" id="sex" name="sex">
+          <label for="sex">Female</label>
+          <br>
+        </div>
+        <div>
+          <label for="country">Country:</label>
+          <select name="country" id="country">
+              <option>select an option</option>
+              <option value="India">India</option>
+              <option value="Nepal">Nepal</option>
+              <option value="USA">USA</option>
+              <option value="Canada">Canada</option>
+          </select>
+          <br>
+        </div>
+        <div>
+          <label for="message">Message:</label>
+          <br>
+          <textarea id="message" name="message"></textarea>
+          <br>
+        </div>
+        <div>
+            <input type="checkbox" id="subscribe" name="subscribed">
+            <label for="subscribe">Subscribe?</label>
+            <br>
+        </div>
+        <div>
+            <button>Submit</button>
+        </div>
+    </form>
+</body>
+</html>
