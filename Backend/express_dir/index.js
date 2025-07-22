@@ -9,4 +9,4 @@ app.listen(port,() => {
 app.use((req,res) => {
     console.log("request received");
     res.send(`This is a basic response and you are on localhost:${port}`)
-})
+});
