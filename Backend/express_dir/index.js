@@ -5,3 +5,8 @@ let port = 3000;
 app.listen(port,() => {
     console.log(`app is listening on port ${port}`);
 });
+
+app.use((req,res) => {
+    console.log("request received");
+    res.send(`This is a basic response and you are on localhost:${port}`)
+})
