@@ -4,6 +4,8 @@ const port = 8080;
 
 const path = require("path");
 
+const {v4:uuidv4} = require('uuid');
+
 app.use(express.urlencoded({extended: true}));
 
 app.set("view engine", "ejs");
@@ -12,17 +14,17 @@ app.use(express.static(path.join(__dirname, "public")));
 
 let posts =[
     {
-        id: "1a",
+        id: uuidv4(),
         username: "Mourya",
         content: "I am a Backend Developer"
     },
     {
-        id: "2b",
+        id: uuidv4(),
         username: "Chanakya",
         content: "I am a Director"
     },
     {
-        id: "3c",
+        id: uuidv4(),
         username: "Shanmukh",
         content: "I am a Businessman"
     },
@@ -42,7 +44,8 @@ app.get("/posts/new", (req,res) => {
 
 app.post("/posts", (req,res) => {
     let {username,content} = req.body;
-    posts.push({username,content});
+    let id = uuidv4();
+    posts.push({id,username,content});
     res.redirect("/posts");
 });
 
