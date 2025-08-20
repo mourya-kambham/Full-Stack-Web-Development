@@ -54,3 +54,11 @@ app.get("/posts/:id", (req,res) => {
     let post = posts.find((p) => id === p.id);
     res.render("show.ejs", {post});
 });
+
+app.patch("/posts/:id", (req,res) => {
+    let {id} = req.params;
+    let newContent = req.body.content;
+    let post = posts.find((p) => id === p.id);
+    post.content = newContent;
+    res.send("patch request working");   //patch request..hopscotch
+});
