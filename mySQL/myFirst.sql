@@ -1,0 +1,4 @@
+CREATE DATABASE college;
+
+CREATE DATABASE student;
+DROP DATABASE student;
