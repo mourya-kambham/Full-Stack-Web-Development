@@ -18,7 +18,7 @@ INSERT INTO user1
 VALUES
 (1, 14, "Avi", "avi@gmail.com", 247, 362),
 (2, 17, "Bhuvi", "bhuvi@gmail.com", 107, 42),
-(3, 16, "Devi", "Devi@gmail.com", 1047, 405),
+(3, 16, "Devi", "devi@gmail.com", 1047, 405),
 (4, 14, "Tanvi", "tanvi@gmail.com", 723, 62);
 
 SELECT id, name, email FROM user1;
@@ -27,6 +27,15 @@ SELECT DISTINCT age FROM user1;
 
 SELECT * FROM user1
 WHERE followers >= 200;
+
+SELECT name, age, followers FROM user1
+WHERE age>14 AND followers>=200;
+
+SELECT * FROM user1
+WHERE age BETWEEN 15 AND 17;
+
+SELECT name, email FROM user1
+WHERE email IN ("devi@gmail.com", "suvi@gmail.com", "tanvi@gmail.com");
 
 CREATE TABLE posts(
    id INT PRIMARY KEY,
