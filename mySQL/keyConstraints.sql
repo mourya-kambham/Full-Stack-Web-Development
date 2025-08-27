@@ -44,6 +44,20 @@ LIMIT 1;
 SELECT * FROM user1
 ORDER BY followers ASC;
 
+SELECT max(followers) FROM user1;
+
+SELECT count(age) FROM user1
+WHERE age=14;
+
+SELECT avg(age) FROM user1;
+
+SELECT age, count(id) FROM user1
+GROUP BY age;
+
+SELECT age, max(followers) FROM user1
+GROUP BY age
+HAVING max(followers)>300;
+
 CREATE TABLE posts(
    id INT PRIMARY KEY,
    content VARCHAR(100),
