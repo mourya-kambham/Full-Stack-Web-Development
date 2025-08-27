@@ -37,6 +37,13 @@ WHERE age BETWEEN 15 AND 17;
 SELECT name, email FROM user1
 WHERE email IN ("devi@gmail.com", "suvi@gmail.com", "tanvi@gmail.com");
 
+SELECT name, followers FROM user1
+WHERE followers<500
+LIMIT 1;
+
+SELECT * FROM user1
+ORDER BY followers ASC;
+
 CREATE TABLE posts(
    id INT PRIMARY KEY,
    content VARCHAR(100),
