@@ -25,6 +25,9 @@ SELECT id, name, email FROM user1;
 
 SELECT DISTINCT age FROM user1;
 
+SELECT * FROM user1
+WHERE followers >= 200;
+
 CREATE TABLE posts(
    id INT PRIMARY KEY,
    content VARCHAR(100),
