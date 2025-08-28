@@ -26,6 +26,9 @@ UPDATE user2
 SET age = 15
 WHERE name = "Bhuvi";
 
+DELETE FROM user2
+WHERE followers<250;
+
 SELECT * FROM user2;
 
 SET SQL_SAFE_UPDATES=0;
