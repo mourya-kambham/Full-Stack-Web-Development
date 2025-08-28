@@ -29,7 +29,18 @@ WHERE name = "Bhuvi";
 DELETE FROM user2
 WHERE followers<250;
 
+ALTER TABLE user2
+ADD COLUMN city VARCHAR(30) DEFAULT "Nellore";
+
+ALTER TABLE user2
+DROP COLUMN age;
+
 SELECT * FROM user2;
+
+ALTER TABLE user2 
+RENAME TO instaUsers_Nellore;
+
+SELECT * FROM instaUsers_Nellore;
 
 SET SQL_SAFE_UPDATES=0;
 
