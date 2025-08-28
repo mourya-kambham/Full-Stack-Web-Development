@@ -37,10 +37,27 @@ DROP COLUMN age;
 
 SELECT * FROM user2;
 
-ALTER TABLE user2 
-RENAME TO instaUsers_Nellore;
+ALTER TABLE instaUsers_Nellore
+RENAME TO user2;
 
-SELECT * FROM instaUsers_Nellore;
+ALTER TABLE user2
+CHANGE COLUMN followers subs INT DEFAULT 0;
+
+SELECT * FROM user2;
+
+ALTER TABLE user2
+MODIFY subs INT DEFAULT 20;
+
+INSERT INTO user2
+(id, name, email, following)
+VALUES
+(6, "yuvi", "yuvi@gmail.com", 240);
+
+UPDATE user2
+SET name = "Yuvi"
+WHERE name = "yuvi";
+
+TRUNCATE TABLE user2;
 
 SET SQL_SAFE_UPDATES=0;
 
