@@ -7,6 +7,7 @@ const path = require("path");
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "/views"));
+app.use(express.static(path.join(__dirname,"public")));
 
 const connection = mysql2.createConnection({
   host: 'localhost',
@@ -32,6 +33,19 @@ app.get("/", (req,res) => {
     let count = result[0]["count(*)"]; //prints only value
     res.render("home.ejs", {count});
    });
+  }catch(err){
+    console.log(err);
+    res.send("Some error in Database");
+   }
+});
+
+app.get("/user", (req,res) => {
+  let q = "SELECT * FROM user";
+  try{
+    connection.query(q, (err, users) => {
+      if(err) throw err;
+      res.render("show.ejs", {users});
+    });
   }catch(err){
     console.log(err);
     res.send("Some error in Database");
