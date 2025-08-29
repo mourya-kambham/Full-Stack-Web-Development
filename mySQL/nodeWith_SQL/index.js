@@ -8,12 +8,25 @@ const connection = mysql2.createConnection({
   password: 'Mourya@2104'
 });
 
-//Inserting New Data
-let q = "INSERT INTO user (id, username, email, password) VALUES (?,?,?,?)";
-let user = ["123", "123_newuser", "abc@gmail.com", "abc"];
+let getRandomUser = () => {
+  return [
+    faker.string.uuid(),
+    faker.internet.username(),
+    faker.internet.email(),
+    faker.internet.password(),
+  ];
+};
+
+//Inserting Bulk Data
+let q = "INSERT INTO user (id, username, email, password) VALUES ?";
+
+let data = [];
+for(let i=1; i<=100; i++){
+  data.push(getRandomUser());
+}
 
 try{
-  connection.query(q, user, (err, result) => {
+  connection.query(q, [data], (err, result) => {
     if(err) throw err;
     console.log(result);
   });
@@ -22,12 +35,3 @@ try{
 }
 
 connection.end();
-
-let getRandomUser = () => {
-  return {
-    id: faker.string.uuid(),
-    username: faker.internet.username(),
-    email: faker.internet.email(),
-    password: faker.internet.password(),
-  };
-};
