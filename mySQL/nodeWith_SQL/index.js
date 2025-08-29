@@ -1,5 +1,12 @@
 const { faker } = require("@faker-js/faker");
 const mysql2 = require("mysql2");
+const express = require("express");
+const app = express();
+let port = 8080;
+const path = require("path");
+
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "/views"));
 
 const connection = mysql2.createConnection({
   host: 'localhost',
@@ -17,21 +24,20 @@ let getRandomUser = () => {
   ];
 };
 
-//Inserting Bulk Data
-let q = "INSERT INTO user (id, username, email, password) VALUES ?";
-
-let data = [];
-for(let i=1; i<=100; i++){
-  data.push(getRandomUser());
-}
-
-try{
-  connection.query(q, [data], (err, result) => {
+app.get("/", (req,res) => {
+  let q = "SELECT count(*) FROM user";
+  try{
+  connection.query(q, (err, result) => {
     if(err) throw err;
-    console.log(result);
-  });
-}catch(err){
-  console.log(err);
-}
+    let count = result[0]["count(*)"]; //prints only value
+    res.render("home.ejs", {count});
+   });
+  }catch(err){
+    console.log(err);
+    res.send("Some error in Database");
+   }
+});
 
-connection.end();
+app.listen(port, () => {
+  console.log(`server is listening to port ${port}`);
+});
