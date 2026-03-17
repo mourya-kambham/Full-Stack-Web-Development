@@ -32,10 +32,18 @@ const user2 = new User({
   age: 38,
 });
 
-user2.save();*/
+user2.save();
 
 User.insertMany([
   {name: "Tony", email: "tony@gmail.com", age: 51},
   {name: "Peter", email: "peter@gmail.com", age: 22},
   {name: "Bruce", email: "bruce@gmail.com", age: 47},
-]);
+]);*/
+
+User.find({})
+  .then((res) => {
+    console.log(res);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
