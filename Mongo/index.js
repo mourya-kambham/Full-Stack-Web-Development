@@ -46,12 +46,20 @@ User.find({})
   })
   .catch((err) => {
     console.log(err);
-  });*/
+  });
 
 User.findOneAndUpdate({name: "Adam"}, {age: 16}, {new: true})
   .then((res) => {
     console.log(res);
   })
   .catch((err) => {
+    console.log(err);
+  });*/
+
+User.findOneAndDelete({name: "Eve"},{new: true})
+  .then((res)=>{
+    console.log(res);
+  })
+  .catch((err)=>{
     console.log(err);
   });
