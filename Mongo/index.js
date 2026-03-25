@@ -38,9 +38,17 @@ User.insertMany([
   {name: "Tony", email: "tony@gmail.com", age: 51},
   {name: "Peter", email: "peter@gmail.com", age: 22},
   {name: "Bruce", email: "bruce@gmail.com", age: 47},
-]);*/
+]);
 
 User.find({})
+  .then((res) => {
+    console.log(res);
+  })
+  .catch((err) => {
+    console.log(err);
+  });*/
+
+User.findOneAndUpdate({name: "Adam"}, {age: 16}, {new: true})
   .then((res) => {
     console.log(res);
   })
