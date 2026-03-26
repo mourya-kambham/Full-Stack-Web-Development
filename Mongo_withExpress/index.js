@@ -4,6 +4,9 @@ const path = require("path");
 const mongoose = require("mongoose");
 const Chat = require("./models/chat.js");
 
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "ejs");
+
 main()
   .then(()=>{
     console.log("connection successful");
