@@ -84,6 +84,12 @@ app.put("/chats/:id", async (req, res) => {
   res.redirect("/chats");
 });
 
+app.delete("/chats/:id", async (req,res) => {
+  let {id} = req.params;
+  let deletedChat = await Chat.findByIdAndDelete(id);
+  res.redirect("/chats");
+});
+
 app.get("/", (req,res) => {
     res.send("working root");
 });
