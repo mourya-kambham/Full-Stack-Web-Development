@@ -6,6 +6,7 @@ const Chat = require("./models/chat.js");
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
+app.use(express.static(path.join(__dirname, "public")));
 
 main()
   .then(()=>{
@@ -17,7 +18,7 @@ async function main(){
     await mongoose.connect("mongodb://127.0.0.1:27017/textapp");
 }
 
-let chat1 = new Chat({
+/*let chat1 = new Chat({
   from: "neha",
   to: "sneha",
   msg: "send me",
@@ -30,10 +31,15 @@ chat1.save()
   })
   .catch((err)=>{
     console.log(err);
-  });
+  });*/
 
 app.set("views", path.join(__dirname, "views"));
 app.set("viewengine", "ejs");
+
+app.get("/chats", async (req,res) => {
+  let chats = await Chat.find();
+  res.render("index.ejs", {chats});
+});
 
 app.get("/", (req,res) => {
     res.send("working root");
