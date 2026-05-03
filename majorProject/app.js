@@ -49,9 +49,9 @@ const sessionOptions = {
 }; 
 
 //Root Route
-app.get("/", (req,res) => {
+/*app.get("/", (req,res) => {
     res.send("Route is working");
-});
+});*/
 
 app.use(session(sessionOptions));
 app.use(flash());
